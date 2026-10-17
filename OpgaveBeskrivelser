@@ -1,0 +1,194 @@
+Opgave A: Summen fra 1 til n
+Dette er programmeringsopgave 1 på side 267 i lærebogen.
+Du kan skrive dit program i filen opgave-a.c.
+
+Write a program segment that computes 1 + 2 + 3 + ... + (n - 1) + n,
+where n is a data value. Follow the loop body with an if statement that compares
+this value to (n * (n + 1)) / 2 and displays a message that indicates whether the
+values are the same or different. What message do you think will be displayed?
+
+Opgave B: Befolkningstilvækst
+Dette er programmeringsopgave 1 på side 281 i lærebogen. Du kan skrive
+dit program i filen opgave-b.c.
+
+There are 9870 people in a town whose population increases by 10% each year.
+Write a loop that displays the annual population and determines
+how many years (count_years) it will take for the population to surpass 30000.
+
+Opgave C: Talpyramide
+Dette er programmeringsopgave 2 på side 292 i lærebogen.
+Du kan skrive dit program i filen opgave-c.c.
+
+Write nests of loops that cause the following output to be displayed:
+
+0
+0 1
+0 1 2
+0 1 2 3
+0 1 2 3 4
+0 1 2 3 4 5
+0 1 2 3 4
+0 1 2 3
+0 1 2
+0 1
+0
+
+Opgave D: Sum af tal i interval som kan divideres med samme tal
+Dette er Kurt Nørmark's opgave 4.2. Du kan skrive dit program i filen opgave-d.c.
+
+I denne opgave gives tre positive heltal m, n og k,
+hvor k er større end 1. Skriv et program der adderer alle
+heltal mellem m og n (begge inklusive) hvor i k går op.
+
+Eksempler:
+
+Hvis m er 5, n er 13 og k er 3 er resultatet 6 + 9 + 12 = 27.
+Hvis m er 5, n er 10 og k er 5 er resultatet 5 + 10 = 15.
+Hvis m er 10, n er 5 og k er 3 ønsker vi at resultatet er 0, idet m er større end n.
+
+
+Opgave E: En simplificeret udgave af Euclids algoritme
+Dette er Kurt Nørmark's opgave 4.5.
+
+Denne opgaver tager udgangspunkt i den udgave af Euclids algoritme,
+som allerede er i filen opgave-e.c.
+
+Hvad sker der hvis vi dropper ombytningen af i og j, og således risikerer
+at small bliver større end large i while-løkken? Her er en sådan version af programmet:
+
+#include <stdio.h>
+
+int main(void) {
+    int a, b, i, j, remainder;
+
+    printf("Enter two non-negative integers: ");
+    scanf("%d %d", &a, &b);
+
+    i = a; j = b;  /* We don't know if i > j */
+    while (j > 0) {
+        remainder = i % j;
+        i = j;
+        j = remainder;
+    }
+
+    printf("GCD of %d and %d is %d\n\n", a, b, i);
+
+    return 0;
+}
+Virker dette - hvorfor, eller hvorfor ikke?
+
+Opgave F: Forklaring af et program med en while løkke
+Dette er Kurt Nørmark's opgave 4.1 Du kan skrive din kode i filen opgave-f.c.
+
+Forklar hvad der udskrives af følgende program.
+Hvor mange gange udføres kroppen af while-løkken? Og hvilken række af tal
+udskriver programmet (helt præcist)? Forudsig først resultatet, og kør dernæst
+programmet.
+
+#include <stdio.h>
+int main(void) {
+    int i = 0, power = 1;
+
+    while (++i <= 10)
+        printf("%5d", power *= 2);
+    printf("\n");
+
+    return 0;
+}
+++i tæller i en op og power *= 2 fordobler power. Men vær sikker på
+at du forstår værdierne af de to udtryk ++i og power *= 2.
+
+Hvad sker der hvis ++i erstattes af i++?
+
+Det viste program er skrevet i typisk, koncis C-stil, og er på denne måde en
+typisk repræsentant for den programmeringsstil, som dyrkes af mange C programmører.
+
+Omskriv programmet (stadig med brug af en while-løkke) således at assignments
+(ala *=) og increments (++) kun har en effekt på variable, men uden direkte at
+anvende værdierne af disse udtryk, som det er gjort i ovenstående program.
+
+Det er også interessant at omskrive programmet, så det bruger en for-løkke i
+stedet for en while-løkke. Prøv dette!
+
+Vurder selv hvilken udgave af programmet du foretrækker.
+
+Hjemmeopgaver
+Dette er opgaver, som I kan arbejde med derhjemme. Enten som forberedelse
+inden lektionen, eller som afrunding og repetition efter lektionen.
+
+Opgave G
+Dette er self-check opgave 1 på side 266 i lærebogen. Du kan evt. afprøve
+dine hypoteser ved at skrive kode i filen opgave-g.c.
+
+What output values are displayed by the following while loop for a data value
+of 5? Of 6? Of 7?
+
+printf("Enter an integer> ");
+scanf("%d", &x);
+product = x;
+count = 0;
+while (count < 4) {
+    printf("%d\n", product);
+    product *= x;
+    count += 1;
+}
+In general, for a data value of any number n, what does this loop display?
+
+Opgave H
+Dette er self-check opgave 3 på side 267 i lærebogen.
+Du kan skrive din kode i filen opgave-h.c.
+
+The following segment needs some revision. Insert braces where they are needed
+and correct the errors. The corrected code should take five integers and display
+their sum.
+
+count = 0;
+while (count <= 5)
+count += 1;
+printf("Next number> ");
+scanf("%d", &next_num);
+next_num += sum;
+printf("%d numbers were added; \n", count);
+printf("their sum is %d.\n", sum);
+Opgave I
+Dette er self-check opgave 6 på side 275 i lærebogen. Du kan skrive din kode
+i filen opgave-i.c.
+
+What errors do you see in the following fragment? Correct the code so it
+displays all multiples of 4 from 0 through 100
+
+for mult4 = 0;
+mult4 < 100;
+mult4 += 4;
+printf("%d\n", mult4);
+Opgave J
+Dette er programmeringsopgave 1 på side 275 i lærebogen. Du kan skrive dit program i filen opgave-j.c.
+
+Write a loop that displays a table of angle measures along with their sine and cosine values.
+
+Assume that the initial and final angle measures (in degrees) are available in init_degree and final_degree (type int variables), and that the change in angle measure between table entries is given by the step_degree (also a type int variable).
+
+Remember that the math library's sin and cos functions take arguments that are in radians.
+
+Opgave K
+Dette er self-check opgave 2 på side 292 i lærebogen.
+
+Du skal først forudse resultatet, før du prøver at køre programmet!! Du kan sætte koden ind i filen opgave-k.c.
+
+Show the output displayed by these nested loops:
+
+for (i = 0; i < 3; ++i) {
+    printf("Outer %4d\n", i);
+    for (j = 0; j < 2; ++j) {
+        printf("  Inner%3d%3d\n", i, j);
+    }
+    for (k = 2; k > 0; --k) {
+        printf("  Inner%3d%3d\n", i, k);
+    }
+}
+Opgave L: Endnu en opgave om sum af tal i et interval
+Dette er Kurt Nørmark's opgave 4.3. Tag gerne udgangspunkt i den kode der allerede er i filen opgave-l.c.
+
+Skriv et program som læser et heltal n. Programmet skal addere alle tal i intervallet fra n til 2 * n hvis n er ikke negativ. Hvis n er negativ, skal programmet addere tallene fra 2 * n til n.
+
+Skriv først en version med for-løkker. Dernæst en version med while løkker.
